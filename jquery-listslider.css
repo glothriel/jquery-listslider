@@ -1,0 +1,50 @@
+.listslider-container{
+    overflow: hidden;
+}
+.listslider-arrow{
+    position: absolute;
+    cursor:pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s linear, visibility 0.5s linear;
+    top: 0;
+}
+
+.listslider-arrow.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.listslider-arrow.listslider-right{
+
+    right: 0;
+}
+
+.listslider-arrow.listslider-left{
+
+    left: 0;
+}
+
+
+
+.listslider-wrapper{
+
+}
+
+.listslider{
+
+}
+
+ul.listslider{
+    white-space: nowrap;
+    clear: both;
+    padding-left: 0;
+}
+
+ul.listslider li{
+    list-style: none;
+    display: inline-block;
+    float: left;
+    padding: 10px;
+
+}
