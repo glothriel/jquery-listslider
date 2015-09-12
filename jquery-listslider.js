@@ -81,10 +81,10 @@ jQuery.fn.extend({
 
             self.showPaginationIfWrapperIsHidden = function(){
                 var wrapper_width = self.getSummedWidthOfListItems();
-                if(self.parent.width() < wrapper_width){
-                    self.parent.find('.listslider-arrow').addClass('active');
+                if($(self.parent).width() < wrapper_width){
+                    $(self.parent).find('.listslider-arrow').addClass('active');
                 }  else{
-                    self.parent.find('.listslider-arrow').removeClass('active');
+                    $(self.parent).find('.listslider-arrow').removeClass('active');
                 }
             };
 
@@ -113,49 +113,58 @@ jQuery.fn.extend({
                 });
             };
 
-            $('.listslider-arrow').on('click', function(){
-                if($(this).hasClass('listslider-left')){
-                    self.scroll(-1 * config.scroll_offset);
-                }else{
-                    self.scroll(config.scroll_offset);
-                }
-            });
+
 
             $(window).on('resize', function(){
                 self.showPaginationIfWrapperIsHidden();
             });
 
-            self.container.on('touchstart',function(e){
+            self.attachEventsToElements  = function(){
+                self.container.on('touchstart',function(e){
 
-                global.touchHandler.onStartedDragging();
-            });
+                    global.touchHandler.onStartedDragging();
+                });
 
-            self.container.on('touchend',function(e){
+                self.container.on('touchend',function(e){
 
-                global.touchHandler.onStoppedDragging();
-            });
+                    global.touchHandler.onStoppedDragging();
+                });
 
-            self.container.on('touchmove',function(e){
-                if(global.touchHandler.isUserDragging()){
-                    var diff = global.touchHandler.getHorizontalDifference();
-                    if(diff == 0){
+                self.container.on('touchmove',function(e){
+                    if(global.touchHandler.isUserDragging()){
+                        var diff = global.touchHandler.getHorizontalDifference();
+                        if(diff == 0){
+                            global.touchHandler.onUserDragged(e);
+                            return;
+                        }
+                        self.container.scrollLeft(self.container.scrollLeft() - diff);
                         global.touchHandler.onUserDragged(e);
-                        return;
                     }
-                    self.container.scrollLeft(self.container.scrollLeft() - diff);
-                    global.touchHandler.onUserDragged(e);
-                }
-            });
+                });
+
+
+                $(self.parent).on('click', '.listslider-arrow', function(){
+                    if($(this).hasClass('listslider-left')){
+                        self.scroll(-1 * config.scroll_offset);
+                    }else{
+                        self.scroll(config.scroll_offset);
+                    }
+                });
+            };
+
+
 
 
             self.ul = $(element);
             self.ul.addClass('listslider');
 
-            self.showPaginationIfWrapperIsHidden();
             self.setupParentDiv();
             self.addWrapper();
             self.addContainer();
             self.addArrows();
+            self.attachEventsToElements();
+            self.showPaginationIfWrapperIsHidden();
+
         }
     }
 });

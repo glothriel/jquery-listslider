@@ -8,14 +8,15 @@
     visibility: hidden;
     transition: opacity 0.5s linear, visibility 0.5s linear;
     top: 0;
+    line-height: 3;
+    font-size: 20px;
+    min-width: 50px;
 }
 
 .listslider-arrow.active{
     opacity: 1;
     visibility: visible;
-    line-height: 3;
-    font-size: 20px;
-    min-width: 50px;
+
 
 }
 

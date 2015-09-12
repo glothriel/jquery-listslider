@@ -21,12 +21,15 @@
         <li>Atomek</li>
         <li>Lizus</li>
         <li>Mizus</li>
-        <li>sizus</li>
+        <li>Foo</li>
     </ul>
 </div>
 
 <script>
-    $('.my-listslider').listslider();
+    $('.my-listslider').listslider({
+        left_label: '<span style="color:red"> &lt; </span>',
+        right_label: '<span style="color:blue"> &gt; </span>'
+    });
 </script>
 
 
