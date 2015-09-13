@@ -28,11 +28,16 @@ usage:
 
     <script>
         $('.my-listslider').listslider({
-            left_label: '<span class="glyphicon glyphicon-chevron-left"></span>',
-            right_label: '<span class="glyphicon glyphicon-chevron-right"></span>'
+            left_label: '<<',
+            right_label: '>>'
         });
     </script>
 
 Requires jquery
 
 demo in index.html
+
+
+Fiddle:
+
+https://jsfiddle.net/hcxke4s4/
