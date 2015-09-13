@@ -27,7 +27,10 @@ usage:
     </ul>
 
     <script>
-        $('.my-listslider').listslider();
+        $('.my-listslider').listslider({
+            left_label: '<span class="glyphicon glyphicon-chevron-left"></span>',
+            right_label: '<span class="glyphicon glyphicon-chevron-right"></span>'
+        });
     </script>
 
 Requires jquery
