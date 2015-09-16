@@ -15,8 +15,7 @@ List when there is not enough space
 
 
 usage: 
-
-
+    
     <ul class="my-listslider">
         <li>Ziomek</li>
         <li>Romek</li>
@@ -37,6 +36,9 @@ Requires jquery
 
 demo in index.html
 
+It can be installed by using the files from the repo or with bower
+
+    bower install jquery-listslider
 
 Fiddle:
 
